@@ -1,24 +1,116 @@
-# Compiled class file
-*.class
+# ========================================
+# Ignorar archivos y carpetas generales
+# ========================================
 
-# Log file
+# Archivos de sistema operativos
+.DS_Store
+Thumbs.db
+
+# Archivos de logs generales
 *.log
 
-# BlueJ files
-*.ctxt
+# Archivos temporales
+*.tmp
+*.temp
+tmp/
+temp/
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# ========================================
+# Configuraciones de IDE y editores (Global)
+# ========================================
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
+# Visual Studio Code
+.vscode/
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
-replay_pid*
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Otros editores
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# ========================================
+# Patitas (Spring Boot 3) specific
+# ========================================
+
+# Directorio de build de Maven
+/patitas/target/
+
+# Directorio de build de Gradle
+/patitas/.gradle/
+
+# Si usas el wrapper de Gradle
+/patitas/gradle-wrapper.jar
+/patitas/gradle-wrapper.properties
+
+# Archivos de configuración específicos de Maven
+/patitas/.mvn/
+
+# Archivos de logs de Spring Boot
+/patitas/*.log
+
+# Archivos de variables de entorno
+/patitas/.env
+/patitas/.env.local
+/patitas/.env.*.local
+
+# Archivos de dependencias específicas de Gradle (opcional)
+# /patitas/gradle.lockfile
+
+# ========================================
+# Veterinaria-Patitas (Angular 17) specific
+# ========================================
+
+# Dependencias de Node.js
+/veterinaria-patitas/node_modules/
+
+# Directorios de build
+/veterinaria-patitas/dist/
+/veterinaria-patitas/build/
+/veterinaria-patitas/out-tsc/
+
+# Archivos de logs de npm/yarn
+/veterinaria-patitas/npm-debug.log*
+/veterinaria-patitas/yarn-debug.log*
+/veterinaria-patitas/yarn-error.log*
+
+# Archivos de cobertura de pruebas
+/veterinaria-patitas/coverage/
+
+# Configuraciones de Angular CLI
+/veterinaria-patitas/.angular/
+
+# Archivos temporales de compilación
+/veterinaria-patitas/tmp/
+/veterinaria-patitas/temp/
+
+# Archivos de variables de entorno
+/veterinaria-patitas/.env
+/veterinaria-patitas/.env.local
+/veterinaria-patitas/.env.*.local
+
+# Archivos de paquetes lock
+# Es recomendable INCLUIR estos archivos para asegurar versiones consistentes
+# Si decides ignorarlos, descomenta las siguientes líneas:
+/veterinaria-patitas/package-lock.json
+/veterinaria-patitas/yarn.lock
+
+# Archivos de editor específicos para Angular
+/veterinaria-patitas/.vscode/
+/veterinaria-patitas/.idea/
+
+# Otros archivos temporales
+/veterinaria-patitas/*.bak
+/veterinaria-patitas/*.backup
+/veterinaria-patitas/*.tmp
+
+# ========================================
+# Opcional: Ignorar otros archivos o carpetas
+# ========================================
+
+# Si tienes otros proyectos o carpetas, agrégalos aquí siguiendo el mismo patrón.
