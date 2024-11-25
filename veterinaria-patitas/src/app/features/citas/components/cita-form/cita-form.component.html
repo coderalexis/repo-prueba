@@ -1,0 +1,111 @@
+<div class="container">
+  <form [formGroup]="citaForm" (ngSubmit)="onSubmit()" class="form-wrapper">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title class="form-title">
+          <mat-icon>pets</mat-icon>
+          Registrar Nueva Cita
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="form-container">
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre del Cliente</mat-label>
+            <input matInput formControlName="nombreCliente" placeholder="Ingrese el nombre del cliente">
+            <mat-icon matSuffix>person</mat-icon>
+            @if (citaForm.get('nombreCliente')?.hasError('required')) {
+              <mat-error>
+                El nombre del cliente es requerido
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Nombre de la Mascota</mat-label>
+            <input matInput formControlName="nombreMascota" placeholder="Ingrese el nombre de la mascota">
+            <mat-icon matSuffix>pets</mat-icon>
+            @if (citaForm.get('nombreMascota')?.hasError('required')) {
+              <mat-error>
+                El nombre de la mascota es requerido
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Razón de la Cita</mat-label>
+            <textarea
+              matInput
+              formControlName="razonCita"
+              placeholder="Describa el motivo de la cita"
+              rows="3">
+            </textarea>
+            <mat-icon matSuffix>description</mat-icon>
+            @if (citaForm.get('razonCita')?.hasError('required')) {
+              <mat-error>
+                La razón de la cita es requerida
+              </mat-error>
+            }
+          </mat-form-field>
+
+          <div class="fecha-hora-container">
+            <mat-form-field appearance="outline" class="fecha-field">
+              <mat-label>Fecha</mat-label>
+              <input
+                matInput
+                [matDatepicker]="picker"
+                formControlName="fecha"
+                [min]="minDate"
+                [matDatepickerFilter]="weekendFilter"
+                (dateChange)="onDateSelected($event)">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+              @if (citaForm.get('fecha')?.hasError('required')) {
+                <mat-error>
+                  La fecha es requerida
+                </mat-error>
+              }
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="hora-field">
+              <mat-label>Hora Disponible</mat-label>
+              <mat-select formControlName="hora" [disabled]="!availableTimeSlots.length">
+                @for (slot of availableTimeSlots; track slot.hour) {
+                  <mat-option [value]="slot.datetime">
+                    {{ slot.hour }}
+                  </mat-option>
+                }
+                @if (!availableTimeSlots.length) {
+                  <mat-option disabled>No hay horarios disponibles</mat-option>
+                }
+              </mat-select>
+              <mat-icon matSuffix>schedule</mat-icon>
+              @if (citaForm.get('hora')?.hasError('required')) {
+                <mat-error>
+                  La hora es requerida
+                </mat-error>
+              }
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button
+          mat-button
+          type="button"
+          (click)="onCancel()">
+          <mat-icon>close</mat-icon>
+          Cancelar
+        </button>
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="!citaForm.valid || !availableTimeSlots.length"
+          class="submit-button">
+          <mat-icon>save</mat-icon>
+          Registrar Cita
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </form>
+</div>

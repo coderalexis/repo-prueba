@@ -1,0 +1,206 @@
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.citas-card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.header-container {
+background-color: #F0F7FF;
+padding: 16px;
+margin: 0;
+border-radius: 8px 8px 0 0;
+display: flex;
+justify-content: center;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 600px;
+  width: 100%;
+  justify-content: center;
+}
+
+.calendar-icon {
+  color: #1976D2;
+  transform: scale(1.2);
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+  text-align: center;
+}
+.mat-card-subtitle {
+  margin: 0;
+  color: #1976D2;
+}
+
+.date-picker-container {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background-color: #FAFAFA;
+}
+
+.citas-list {
+  padding: 0;
+}
+
+.cita-item {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  height: auto !important;
+  padding: 8px 0;
+}
+
+.cita-item:hover {
+  background-color: #F5F5F5;
+}
+
+.cita-list-content {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 16px;
+  width: 100%;
+}
+
+.time-container {
+  min-width: 100px;
+  text-align: center;
+}
+
+.cita-time {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #2196F3;
+}
+
+.appointment-chip {
+  font-size: 0.75rem;
+  margin-top: 4px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  display: inline-block;
+  background-color: #E3F2FD;
+  color: #1976D2;
+  font-weight: 500;
+}
+
+.cita-info {
+  flex-grow: 1;
+  padding: 4px 0;
+}
+
+.client-pet-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.client-name {
+  font-weight: 500;
+  color: #333;
+}
+
+.pet-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: #F5F5F5;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pet-icon {
+  font-size: 16px;
+  height: 16px;
+  width: 16px;
+}
+
+.appointment-reason {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+.actions-container {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  display: flex;
+  gap: 8px;
+}
+
+.cita-item:hover .actions-container {
+  opacity: 1;
+}
+
+.view-button {
+  color: #1976D2;
+}
+
+.delete-button {
+  color: #F44336;
+}
+
+.no-citas {
+  text-align: center;
+  color: #666;
+  padding: 48px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.empty-icon {
+  font-size: 48px;
+  width: 48px;
+  height: 48px;
+  color: #1976D2;
+  opacity: 0.5;
+  margin-bottom: 8px;
+}
+
+.no-citas small {
+  color: #999;
+}
+
+mat-divider {
+  margin: 0;
+}
+
+::ng-deep .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 12px;
+  }
+
+  .time-container {
+    min-width: 80px;
+  }
+
+  .client-pet-info {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .actions-container {
+    opacity: 1;
+  }
+}

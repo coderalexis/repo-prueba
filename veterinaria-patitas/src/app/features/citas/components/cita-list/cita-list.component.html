@@ -1,0 +1,82 @@
+<div class="container">
+  <mat-card class="citas-card">
+    <mat-card-header class="header-container">
+      <div class="header-content">
+        <mat-icon class="calendar-icon">pending_actions</mat-icon>
+        <div class="header-text">
+          <mat-card-title>Citas Pendientes</mat-card-title>
+          <mat-card-subtitle>
+            {{ selectedDate | date:'longDate':'':'es' }}
+          </mat-card-subtitle>
+        </div>
+      </div>
+    </mat-card-header>
+
+    <div class="date-picker-container">
+      <mat-form-field appearance="outline">
+        <mat-label>Seleccionar fecha</mat-label>
+        <input matInput [matDatepicker]="picker"
+               [(ngModel)]="selectedDate"
+               (dateChange)="onDateSelected($event)">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <mat-card-content>
+      <mat-list class="citas-list">
+        @if (filteredCitas$ | async; as citas) {
+          @if (citas.length > 0) {
+            @for (cita of citas; track cita.id) {
+              <mat-list-item class="cita-item"
+                            (click)="openDetailsDialog(cita)">
+                <div class="cita-list-content">
+                  <div class="time-container">
+                    <div class="cita-time">
+                      {{ cita.fechaHora | date:'shortTime' }}
+                    </div>
+                    <div class="appointment-chip">
+                      Pendiente
+                    </div>
+                  </div>
+
+                  <div class="cita-info">
+                    <div class="client-pet-info">
+                      <span class="client-name">{{ cita.nombreCliente }}</span>
+                      <span class="pet-badge">
+                        <mat-icon class="pet-icon">pets</mat-icon>
+                        {{ cita.nombreMascota }}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div class="actions-container">
+                    <button mat-icon-button
+                            class="view-button"
+                            matTooltip="Ver detalles"
+                            (click)="openDetailsDialog(cita); $event.stopPropagation()">
+                      <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button
+                            class="delete-button"
+                            matTooltip="Eliminar cita"
+                            (click)="deleteCita(cita.id); $event.stopPropagation()">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                <mat-divider></mat-divider>
+              </mat-list-item>
+            }
+          } @else {
+            <div class="no-citas">
+              <mat-icon class="empty-icon">event_available</mat-icon>
+              <p>No hay citas pendientes para esta fecha</p>
+              <small>Todas las citas han sido atendidas</small>
+            </div>
+          }
+        }
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

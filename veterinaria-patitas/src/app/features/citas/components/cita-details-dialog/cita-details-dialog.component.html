@@ -1,0 +1,58 @@
+<div class="dialog-header">
+  <mat-icon class="header-icon">event_note</mat-icon>
+  <h2 mat-dialog-title>Detalles de la Cita</h2>
+  <button mat-icon-button mat-dialog-close class="close-button" matTooltip="Cerrar">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-dialog-content>
+  <div class="dialog-content">
+    <div class="info-section">
+      <div class="info-row">
+        <mat-icon class="info-icon">person</mat-icon>
+        <div class="info-content">
+          <span class="info-label">Cliente</span>
+          <span class="info-value">{{data.nombreCliente}}</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <mat-icon class="info-icon">pets</mat-icon>
+        <div class="info-content">
+          <span class="info-label">Mascota</span>
+          <span class="info-value">{{data.nombreMascota}}</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <mat-icon class="info-icon">schedule</mat-icon>
+        <div class="info-content">
+          <span class="info-label">Fecha y Hora</span>
+          <span class="info-value">{{data.fechaHora | date:'EEEE dd/MM/yyyy HH:mm':'':'es'}}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="razon-section">
+      <div class="razon-header">
+        <mat-icon class="info-icon">medical_services</mat-icon>
+        <span class="info-label">Razón de la visita</span>
+      </div>
+      <div class="razon-content">
+        {{data.razonCita}}
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+
+<mat-divider></mat-divider>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close color="primary">
+    <mat-icon>check_circle</mat-icon>
+    Aceptar
+  </button>
+</mat-dialog-actions>

@@ -1,0 +1,54 @@
+.container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-wrapper {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.form-container {
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.fecha-hora-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.fecha-field {
+  flex: 1;
+}
+
+.hora-field {
+  flex: 1;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.submit-button {
+  padding: 8px 24px;
+  font-size: 1rem;
+}
+
+.submit-button mat-icon {
+  margin-right: 8px;
+}

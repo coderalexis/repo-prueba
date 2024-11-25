@@ -1,0 +1,238 @@
+<div class="main-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="main-title">Veterinaria Patitas</h1>
+      <p class="subtitle">Cuidando a tus mascotas con amor y profesionalismo desde 2010</p>
+      <div class="hero-buttons">
+        <button mat-raised-button color="primary" class="cta-button">
+          <mat-icon>calendar_today</mat-icon>
+          Agenda una Cita
+        </button>
+        <button mat-stroked-button color="primary" class="secondary-button">
+          <mat-icon>phone</mat-icon>
+          Contacto de Emergencia
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Destacados -->
+  <section class="features-section">
+    <h2 class="section-title">¿Por qué elegirnos?</h2>
+    <div class="features-grid">
+      <div class="feature-item">
+        <mat-icon class="feature-icon">verified</mat-icon>
+        <h3>Médicos Certificados</h3>
+        <p>Equipo con más de 10 años de experiencia</p>
+      </div>
+      <div class="feature-item">
+        <mat-icon class="feature-icon">health_and_safety</mat-icon>
+        <h3>Instalaciones Modernas</h3>
+        <p>Equipamiento de última generación</p>
+      </div>
+      <div class="feature-item">
+        <mat-icon class="feature-icon">favorite</mat-icon>
+        <h3>Atención Personalizada</h3>
+        <p>Cuidamos a cada mascota como si fuera nuestra</p>
+      </div>
+      <div class="feature-item">
+        <mat-icon class="feature-icon">price_check</mat-icon>
+        <h3>Precios Accesibles</h3>
+        <p>Planes y facilidades de pago</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios Principales -->
+  <section class="services-section">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <div class="services-grid">
+      <mat-card class="service-card">
+        <mat-icon class="service-icon">pets</mat-icon>
+        <h3>Consulta General</h3>
+        <p>Examen físico completo y diagnóstico general de tu mascota</p>
+        <mat-chip-set>
+          <mat-chip>Desde $30</mat-chip>
+        </mat-chip-set>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-icon class="service-icon">vaccines</mat-icon>
+        <h3>Vacunación</h3>
+        <p>Programa completo de vacunación para perros y gatos</p>
+        <mat-chip-set>
+          <mat-chip>Desde $25</mat-chip>
+        </mat-chip-set>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-icon class="service-icon">medical_services</mat-icon>
+        <h3>Cirugías</h3>
+        <p>Procedimientos quirúrgicos con equipo especializado</p>
+        <mat-chip-set>
+          <mat-chip>Consultar precio</mat-chip>
+        </mat-chip-set>
+      </mat-card>
+
+      <mat-card class="service-card">
+        <mat-icon class="service-icon">science</mat-icon>
+        <h3>Laboratorio</h3>
+        <p>Análisis clínicos y estudios especializados</p>
+        <mat-chip-set>
+          <mat-chip>Desde $45</mat-chip>
+        </mat-chip-set>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Equipo Médico -->
+  <section class="team-section">
+  <h2 class="section-title">Nuestro Equipo Médico</h2>
+  <div class="team-grid">
+    @for (doctor of doctors; track doctor.name) {
+      <mat-card class="team-card">
+        <img [src]="doctor.image"
+             [alt]="doctor.name"
+             class="team-image"
+             loading="lazy"
+             (error)="handleImageError($event)">
+        <h3>{{ doctor.name }}</h3>
+        <p class="specialty">{{ doctor.specialty }}</p>
+        <p>{{ doctor.description }}</p>
+      </mat-card>
+    }
+  </div>
+</section>
+
+  <!-- Testimonios -->
+  <section class="testimonials-section">
+    <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+    <div class="testimonials-grid">
+      <mat-card class="testimonial-card">
+        <mat-icon class="quote-icon">format_quote</mat-icon>
+        <p class="testimonial-text">
+          "Excelente atención para mi gatita Luna. El Dr. Juan fue muy profesional y cariñoso con ella."
+        </p>
+        <div class="testimonial-author">
+          <p class="author-name">Ana Martínez</p>
+          <div class="rating">
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+          </div>
+        </div>
+      </mat-card>
+
+      <mat-card class="testimonial-card">
+        <mat-icon class="quote-icon">format_quote</mat-icon>
+        <p class="testimonial-text">
+          "Tienen el mejor servicio de emergencias. Atendieron a mi perro Max de inmediato cuando lo necesitó."
+        </p>
+        <div class="testimonial-author">
+          <p class="author-name">Pedro Sánchez</p>
+          <div class="rating">
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>star_half</mat-icon>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Info y Horarios -->
+  <section class="info-section">
+    <div class="info-grid">
+      <mat-card class="hours-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>schedule</mat-icon>
+            Horario de Atención
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="schedule-container">
+            <div class="schedule-item">
+              <span class="day">Lunes a Viernes</span>
+              <span class="hours">9:00 AM - 6:00 PM</span>
+            </div>
+            <div class="schedule-item closed">
+              <span class="day">Sábado y Domingo</span>
+              <span class="hours">Cerrado</span>
+            </div>
+            <div class="emergency-note">
+              <mat-icon>warning</mat-icon>
+              <span>Emergencias: Durante horario de atención</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+
+      <mat-card class="contact-card">
+        <mat-card-header>
+          <mat-card-title>
+            <mat-icon>contact_phone</mat-icon>
+            Información de Contacto
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="contact-info">
+            <div class="contact-item">
+              <mat-icon>phone</mat-icon>
+              <span>(123) 456-7890</span>
+            </div>
+            <div class="contact-item">
+              <mat-icon>mail</mat-icon>
+              <span>contacto&#64;veterinariapatitas.com</span>
+            </div>
+            <div class="contact-item">
+              <mat-icon>location_on</mat-icon>
+              <span>Av. Principal #123, Ciudad</span>
+            </div>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Tips Section -->
+  <section class="tips-section">
+    <h2 class="section-title">Tips para el Cuidado de tu Mascota</h2>
+    <div class="tips-grid">
+      <mat-card class="tip-card">
+        <mat-icon class="tip-icon">restaurant</mat-icon>
+        <h3>Alimentación</h3>
+        <ul class="tip-list">
+          <li>Establece horarios fijos de comida</li>
+          <li>Usa alimento adecuado para su edad</li>
+          <li>Mantén agua fresca disponible</li>
+        </ul>
+      </mat-card>
+
+      <mat-card class="tip-card">
+        <mat-icon class="tip-icon">fitness_center</mat-icon>
+        <h3>Ejercicio</h3>
+        <ul class="tip-list">
+          <li>Paseos diarios de 30 minutos</li>
+          <li>Juegos interactivos</li>
+          <li>Actividades según su edad</li>
+        </ul>
+      </mat-card>
+
+      <mat-card class="tip-card">
+        <mat-icon class="tip-icon">healing</mat-icon>
+        <h3>Salud</h3>
+        <ul class="tip-list">
+          <li>Visitas regulares al veterinario</li>
+          <li>Mantén vacunas al día</li>
+          <li>Control de parásitos mensual</li>
+        </ul>
+      </mat-card>
+    </div>
+  </section>
+</div>
